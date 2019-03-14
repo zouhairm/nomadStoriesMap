@@ -102,7 +102,7 @@ def _getPageStoryLinks(browser):
 def _getStory(browser, link):
     browser.open(link)
     soup = browser.get_current_page()
-    
+
 
     meta = yaml.load(soup.find(attrs={'type':'application/ld+json'}).text)
 
@@ -124,23 +124,35 @@ def _getStory(browser, link):
 
     return story
 
-def FetchAllStories(browser, links, overwrite = False):
 
+
+
+#Using a custom Dumper class to prevent changing the global state
+# Super neat hack to preserve the mapping key order. 
+# See https://stackoverflow.com/a/52621703/1497385 & https://stackoverflow.com/questions/16782112/
+class MyYamlDictDumper(yaml.Dumper):
+    def represent_dict_preserve_order(self, data):
+        return self.represent_dict(data.items())    
+MyYamlDictDumper.add_representer(dict, MyYamlDictDumper.represent_dict_preserve_order)
+
+
+def FetchAllStories(browser, links, overwrite = False):
     for l in tqdm(links):
         urlsplit = l.split('/')
         storyName = l.split('/')[-1]
         year = urlsplit[-3]
-        storyFile = os.path.join(dataFolder, year + '/' + storyName)
+
+        dirname   = os.path.join(dataFolder, year)
+        storyFile = os.path.join(dirname, storyName)
 
         #Check if we already fetched this story
         if os.path.isfile(storyFile) and not overwrite:
             continue
-        else:
+        elif not os.path.isdir(dirname):
             os.makedirs(os.path.dirname(storyFile), exist_ok=True)
 
         #fetch the actual story
         story = _getStory(browser, l)
 
         with open(storyFile,'w') as f:
-            yaml.dump(story, f)
-
+            yaml.dump(story, f, Dumper = MyYamlDictDumper, default_flow_style=False)
