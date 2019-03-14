@@ -3,6 +3,8 @@ from tqdm import tqdm
 
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
+import requests
+
 import yaml
 
 
@@ -100,13 +102,20 @@ def _getPageStoryLinks(browser):
 # ##########
 
 def _getStory(browser, link):
-    browser.open(link)
-    soup = browser.get_current_page()
+    if type(browser) == requests.sessions.Session:
+        response = browser.get(link)
+        soup = BeautifulSoup(response.content, 'lxml')
+    else:
+        browser.open(link)
+        soup = browser.get_current_page()
 
 
     meta = yaml.load(soup.find(attrs={'type':'application/ld+json'}).text)
 
-    story = {'Title': meta['name'], 'Date': meta['dateModified'], 'Url': link}
+    story = {'Title': meta['name'], 
+            'DateModified': meta['dateModified'], 
+            'DatePublished': meta['datePublished'],
+             'Url': link}
 
     country_category = soup.find(attrs={'class':'scholarships-entry-country'})
     ch = list(country_category.children)
@@ -137,6 +146,7 @@ MyYamlDictDumper.add_representer(dict, MyYamlDictDumper.represent_dict_preserve_
 
 
 def FetchAllStories(browser, links, overwrite = False):
+
     for l in tqdm(links):
         urlsplit = l.split('/')
         storyName = l.split('/')[-1]

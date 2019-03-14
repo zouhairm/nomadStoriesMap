@@ -3,6 +3,7 @@ import mechanicalsoup as ms
 import os
 import numpy as np
 import yaml
+import requests
 
 
 import logging
@@ -19,4 +20,7 @@ browser.set_user_agent("IE/Chrome")
 links  = GetAllStoryLinks(browser, year=2018)
 links += GetAllStoryLinks(browser, year=2019)
 
-FetchAllStories(browser, links)
+
+session = requests.Session()
+FetchAllStories(session, links)
+# FetchAllStories(browser, links, overwrite=True)
