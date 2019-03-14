@@ -23,9 +23,9 @@ log = logging.getLogger('scraper')
 def _navigateToRoot(browser, year, startpage):
     global urlbase
 
-    startpage = '?page=%i'%startpage if startpage > 1 else ''
+    title = '?page=%i'%startpage if startpage > 1 else ''
     #Navigate to root of year
-    url = appLinkFmt.format(base=urlbase, year = year, title = '')
+    url = appLinkFmt.format(base=urlbase, year = year, title = title)
     r = browser.open(url)
 
 
@@ -50,7 +50,7 @@ def GetAllStoryLinks(browser, year, startpage=1):
     log.info('Getting story links for year=%i (total of %i pages)'%(year, nPages))
 
     allStoryLinks = []
-    outFile = open(filename, 'w+')
+    outFile = open(filename, 'a')
 
     for page in tqdm(range(startpage,nPages+1)):
         #Fetch links
@@ -60,8 +60,8 @@ def GetAllStoryLinks(browser, year, startpage=1):
         #If for some reason nothing there, might be because browser messed up
         #try to recover!
         if len(newLinks) == 0:
-            log.warning('Page %i is suspiciously empty ... trying a reset'%page)
-            _navigateToRoot(browser, year, page)
+            log.warning('Page %i is suspiciously empty ... manually skipping to %i'%(nextPage,nextPage+1))
+            _navigateToRoot(browser, year, nextPage+1)
             continue
 
         #Dump links to a file
