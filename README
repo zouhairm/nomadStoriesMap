@@ -1,0 +1,15 @@
+Goal of this project is to do something cool with travel writing stories submitted to world nomad.
+
+These are the main features to be implemented:
+
+1) Scrape the data from the website
+2) Train a system to represent the stories (such as word2Vec or doc2Vec)
+3) ???
+4) Profit!
+
+Some options for 3:
+* Build a classifier and a way to explore the corpus of stories. Perhaps associate each cluster with some images (pulled from Web?)
+
+* Come up with one sentence summaries for each of the stories? Is there such a thing as an SVD for that?
+
+* Generate new stories based on a "seed"?
