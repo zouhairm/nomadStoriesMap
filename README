@@ -12,4 +12,12 @@ Some options for 3:
 
 * Come up with one sentence summaries for each of the stories? Is there such a thing as an SVD for that?
 
-* Generate new stories based on a "seed"?
+* Generate new stories based on a "seed" sentence?
+
+
+
+Readings & References:
+
+https://medium.com/@david.campion/text-generation-using-bidirectional-lstm-and-doc2vec-models-2-3-f0fc07ee7b30
+
+https://radimrehurek.com/gensim/
