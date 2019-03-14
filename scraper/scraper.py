@@ -18,9 +18,8 @@ browser = ms.StatefulBrowser()
 browser.set_user_agent("IE/Chrome")
 
 links  = GetAllStoryLinks(browser, year=2018)
-# links += GetAllStoryLinks(browser, year=2019)
+links += GetAllStoryLinks(browser, year=2019)
 
 
 session = requests.Session()
 FetchAllStories(session, links)
-# FetchAllStories(browser, links, overwrite=True)

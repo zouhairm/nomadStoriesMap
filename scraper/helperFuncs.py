@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 import requests
 
 import yaml
+from difflib import SequenceMatcher
 
 
 projDIR    = os.path.dirname(__file__)
@@ -29,11 +30,11 @@ def _navigateToRoot(browser, year, startpage):
     r = browser.open(url)
 
 
-def GetAllStoryLinks(browser, year, startpage=1):
+def GetAllStoryLinks(browser, year, startpage=1, forceRestart=False):
 
     filename = os.path.join(dataFolder, 'storyLinks_%i.txt'%year)
 
-    if startpage == 1 and os.path.isfile(filename):
+    if not forceRestart and startpage == 1 and os.path.isfile(filename):
         log.info('Loading links from existing file %s'%filename)
         with open(filename, 'r') as inputFile:
             allStoryLinks = [line.rstrip() for line in inputFile]
@@ -50,7 +51,7 @@ def GetAllStoryLinks(browser, year, startpage=1):
     log.info('Getting story links for year=%i (total of %i pages)'%(year, nPages))
 
     allStoryLinks = []
-    outFile = open(filename, 'a')
+    outFile = open(filename, 'w+' if forceRestart else 'a')
 
     for page in tqdm(range(startpage,nPages+1)):
         #Fetch links
@@ -83,7 +84,6 @@ def GetAllStoryLinks(browser, year, startpage=1):
         except: #in case the above fails for some reason ... 
             log.error('Failed to parse next page link at %i'%page)
             break
-
 
 
     outFile.close()
@@ -147,16 +147,23 @@ MyYamlDictDumper.add_representer(dict, MyYamlDictDumper.represent_dict_preserve_
 
 def FetchAllStories(browser, links, overwrite = False):
 
+    prevName = ''
     for l in tqdm(links):
         urlsplit = l.split('/')
         storyName = l.split('/')[-1]
         year = urlsplit[-3]
 
+        if SequenceMatcher(None, storyName, prevName).ratio() > 0.9:
+            log.warning('Skipping %s/%s (likely duplicate of %s)'%(year,storyName, prevName))
+            continue
+
+        prevName = storyName
+
         dirname   = os.path.join(dataFolder, year)
         storyFile = os.path.join(dirname, storyName)
 
         #Check if we already fetched this story
-        if os.path.isfile(storyFile) and not overwrite:
+        if overwrite == False and os.path.isfile(storyFile):
             continue
         elif not os.path.isdir(dirname):
             os.makedirs(os.path.dirname(storyFile), exist_ok=True)
@@ -166,3 +173,4 @@ def FetchAllStories(browser, links, overwrite = False):
 
         with open(storyFile,'w') as f:
             yaml.dump(story, f, Dumper = MyYamlDictDumper, default_flow_style=False)
+
