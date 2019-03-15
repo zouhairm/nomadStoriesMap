@@ -169,8 +169,16 @@ def FetchAllStories(browser, links, overwrite = False):
             os.makedirs(os.path.dirname(storyFile), exist_ok=True)
 
         #fetch the actual story
-        story = _getStory(browser, l)
+        try:
+            story = _getStory(browser, l)
+        except:
+            log.error('Failed to fetch %s'%storyName)
+            continue
 
-        with open(storyFile,'w') as f:
-            yaml.dump(story, f, Dumper = MyYamlDictDumper, default_flow_style=False)
+        try:
+            with open(storyFile,'w') as f:
+                yaml.dump(story, f, Dumper = MyYamlDictDumper, default_flow_style=False)
+        except Exception as e:
+            log.error('Failed to save file for %s'%l + str(e))
+            continue
 

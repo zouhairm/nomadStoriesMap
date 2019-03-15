@@ -8,3 +8,8 @@ mechanicalsoup
 
 #libraries for NLP
 gensim
+keras
+tensorflow
+
+sklearn
+scipy

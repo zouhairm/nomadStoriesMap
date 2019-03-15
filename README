@@ -2,7 +2,7 @@ Goal of this project is to do something cool with travel writing stories submitt
 
 These are the main features to be implemented:
 
-1) Scrape the data from the website: DONE! Took about ~4 hours of coding and ~16 hrs to download (slow connection in Sri Lanka !!)
+1) Scrape the data from the website: DONE! Took about ~4 hours of coding and ~24 hrs to download (slow connection in Sri Lanka !!)
 2) Train a system to represent the stories (such as word2Vec or doc2Vec)
 3) ???
 4) Profit!
@@ -18,6 +18,10 @@ Some options for 3:
 
 Readings & References:
 
+https://www.datanovia.com/en/lessons/determining-the-optimal-number-of-clusters-3-must-know-methods/
+
 https://medium.com/@david.campion/text-generation-using-bidirectional-lstm-and-doc2vec-models-2-3-f0fc07ee7b30
+
+https://arxiv.org/pdf/1405.4053.pdf
 
 https://radimrehurek.com/gensim/
