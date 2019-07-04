@@ -1,0 +1,15 @@
+#Good old helpful python libraries
+numpy
+yaml
+tqdm
+
+#libraries for scraper
+mechanicalsoup
+
+#libraries for NLP
+gensim
+keras
+tensorflow
+
+sklearn
+scipy

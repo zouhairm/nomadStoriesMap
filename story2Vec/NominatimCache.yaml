@@ -1,0 +1,590 @@
+Afghanistan:
+  cont: AS
+  lonlat: [66.0, 33.0]
+Albania:
+  cont: EU
+  lonlat: [20.0, 41.0]
+Algeria:
+  cont: AF
+  lonlat: [3.0, 28.0]
+American Samoa:
+  cont: OC
+  lonlat: [-169.47767, -14.23377]
+Angola:
+  cont: AF
+  lonlat: [18.5, -12.5]
+Argentina:
+  cont: SA
+  lonlat: [-64.0, -34.0]
+Armenia:
+  cont: AS
+  lonlat: [45.0, 40.25]
+Aruba:
+  cont: NA
+  lonlat: [-69.96667, 12.5]
+Australia:
+  cont: OC
+  lonlat: [135.0, -25.0]
+Austria:
+  cont: EU
+  lonlat: [13.33333, 47.33333]
+Azerbaijan:
+  cont: AS
+  lonlat: [47.5, 40.5]
+Azores:
+  cont: EU
+  lonlat: [-25.47466, 37.80847]
+Bahamas:
+  cont: NA
+  lonlat: [-77.37122, 25.04082]
+Bahrain:
+  cont: AS
+  lonlat: [50.55, 26.03333]
+Bangladesh:
+  cont: AS
+  lonlat: [90.0, 24.0]
+Barbados:
+  cont: NA
+  lonlat: [-59.55165, 13.16453]
+Belarus:
+  cont: EU
+  lonlat: [28.0, 53.0]
+Belgium:
+  cont: EU
+  lonlat: [4.5, 50.75]
+Belize:
+  cont: NA
+  lonlat: [-88.75, 17.25]
+Benin:
+  cont: AF
+  lonlat: [2.25, 9.5]
+Bermuda:
+  cont: NA
+  lonlat: [-64.74003, 32.33022]
+Bhutan:
+  cont: AS
+  lonlat: [90.5, 27.5]
+Bolivia:
+  cont: SA
+  lonlat: [-65.0, -17.0]
+Bosnia:
+  cont: EU
+  lonlat: [17.83333, 44.25]
+Botswana:
+  cont: AF
+  lonlat: [24.0, -22.0]
+Brazil:
+  cont: SA
+  lonlat: [-55.0, -10.0]
+Bulgaria:
+  cont: EU
+  lonlat: [25.25, 42.66667]
+Burkina Faso:
+  cont: AF
+  lonlat: [-1.66667, 12.5]
+Cambodia:
+  cont: AS
+  lonlat: [105.0, 13.0]
+Cameroon:
+  cont: AF
+  lonlat: [12.5, 6.0]
+Canada:
+  cont: NA
+  lonlat: [-113.64258, 60.10867]
+Canary Islands:
+  cont: EU
+  lonlat: [-15.5, 28.0]
+Cape Verde:
+  cont: AF
+  lonlat: [-24.0, 16.0]
+Central African Republic:
+  cont: AF
+  lonlat: [21.0, 7.0]
+Chad:
+  cont: AF
+  lonlat: [19.0, 15.0]
+Chile:
+  cont: SA
+  lonlat: [-71.0, -30.0]
+China:
+  cont: AS
+  lonlat: [105.0, 35.0]
+Colombia:
+  cont: SA
+  lonlat: [-73.25, 4.0]
+Congo:
+  cont: AF
+  lonlat: [15.5, -1.0]
+Congo Democratic Republic:
+  cont: AF
+  lonlat: [23.5, -2.5]
+Cook Islands:
+  cont: OC
+  lonlat: [-159.78516, -21.24842]
+Costa Rica:
+  cont: NA
+  lonlat: [-84.0, 10.0]
+Cote D'Ivoire:
+  cont: AF
+  lonlat: [-5.5, 8.0]
+Croatia:
+  cont: EU
+  lonlat: [15.5, 45.16667]
+Cuba:
+  cont: NA
+  lonlat: [-79.5, 22.0]
+Curacao:
+  cont: NA
+  lonlat: [-68.96667, 12.16667]
+Cyprus:
+  cont: EU
+  lonlat: [33.0, 35.0]
+Czech Republic:
+  cont: EU
+  lonlat: [15.0, 49.75]
+Denmark:
+  cont: EU
+  lonlat: [10.0, 56.0]
+Dominica:
+  cont: NA
+  lonlat: [-61.33333, 15.5]
+Dominican Republic:
+  cont: NA
+  lonlat: [-69.89232, 18.47186]
+East Timor:
+  cont: OC
+  lonlat: [125.75, -8.83333]
+Ecuador:
+  cont: SA
+  lonlat: [-78.25, -1.25]
+Egypt:
+  cont: AF
+  lonlat: [30.0, 27.0]
+El Salvador:
+  cont: NA
+  lonlat: [-88.91667, 13.83333]
+Estonia:
+  cont: EU
+  lonlat: [26.0, 59.0]
+Ethiopia:
+  cont: AF
+  lonlat: [39.5, 9.0]
+Fiji:
+  cont: OC
+  lonlat: [178.0, -18.0]
+Finland:
+  cont: EU
+  lonlat: [26.0, 64.0]
+France:
+  cont: EU
+  lonlat: [2.0, 46.0]
+French Polynesia:
+  cont: OC
+  lonlat: [-140.0, -15.0]
+Gabon:
+  cont: AF
+  lonlat: [11.75, -1.0]
+Gambia:
+  cont: AF
+  lonlat: [-15.5, 13.5]
+Georgia:
+  cont: AS
+  lonlat: [43.4999, 41.99998]
+Germany:
+  cont: EU
+  lonlat: [10.5, 51.5]
+Ghana:
+  cont: AF
+  lonlat: [-1.2, 8.1]
+Great Britain:
+  cont: EU
+  lonlat: [-2.69531, 54.75844]
+Greece:
+  cont: EU
+  lonlat: [22.0, 39.0]
+Greenland:
+  cont: NA
+  lonlat: [-40.0, 72.0]
+Guatemala:
+  cont: NA
+  lonlat: [-90.25, 15.5]
+Guinea:
+  cont: AF
+  lonlat: [-10.66667, 10.83333]
+Guinea-Bissau:
+  cont: AF
+  lonlat: [-15.0, 12.0]
+Guyana:
+  cont: SA
+  lonlat: [-59.0, 5.0]
+Haiti:
+  cont: NA
+  lonlat: [-72.29616, 19.07582]
+Honduras:
+  cont: NA
+  lonlat: [-86.5, 15.0]
+Hong Kong:
+  cont: AS
+  lonlat: [114.17469, 22.27832]
+Hungary:
+  cont: EU
+  lonlat: [20.0, 47.0]
+Iceland:
+  cont: EU
+  lonlat: [-18.0, 65.0]
+India:
+  cont: AS
+  lonlat: [79.0, 22.0]
+Indonesia:
+  cont: AS
+  lonlat: [120.0, -5.0]
+Iran:
+  cont: AS
+  lonlat: [53.0, 32.0]
+Iraq:
+  cont: AS
+  lonlat: [44.0, 33.0]
+Ireland:
+  cont: EU
+  lonlat: [-8.0, 53.0]
+Israel:
+  cont: AS
+  lonlat: [34.75, 31.5]
+Italy:
+  cont: EU
+  lonlat: [12.83333, 42.83333]
+Jamaica:
+  cont: NA
+  lonlat: [-77.25, 18.16667]
+Japan:
+  cont: AS
+  lonlat: [139.75309, 35.68536]
+Jordan:
+  cont: AS
+  lonlat: [36.0, 31.0]
+Kazakhstan:
+  cont: AS
+  lonlat: [68.0, 48.0]
+Kenya:
+  cont: AF
+  lonlat: [38.0, 1.0]
+Kiribati:
+  cont: OC
+  lonlat: [172.984, 1.421]
+Korea North:
+  cont: AS
+  lonlat: [127.0, 40.0]
+Korea South:
+  cont: AS
+  lonlat: [127.75, 36.5]
+Kuwait:
+  cont: AS
+  lonlat: [47.75, 29.5]
+Kyrgyzstan:
+  cont: AS
+  lonlat: [75.0, 41.5]
+Laos:
+  cont: AS
+  lonlat: [105.0, 18.0]
+Latvia:
+  cont: EU
+  lonlat: [25.0, 57.0]
+Lebanon:
+  cont: AS
+  lonlat: [35.83333, 33.83333]
+Lesotho:
+  cont: AF
+  lonlat: [28.25, -29.5]
+Libya:
+  cont: AF
+  lonlat: [17.0, 28.0]
+Liechtenstein:
+  cont: EU
+  lonlat: [9.53333, 47.16667]
+Lithuania:
+  cont: EU
+  lonlat: [24.0, 55.41667]
+Luxembourg:
+  cont: EU
+  lonlat: [6.16667, 49.75]
+Macedonia:
+  cont: EU
+  lonlat: [21.75, 41.66667]
+Madagascar:
+  cont: AF
+  lonlat: [47.0, -20.0]
+Malawi:
+  cont: AF
+  lonlat: [34.0, -13.5]
+Malaysia:
+  cont: AS
+  lonlat: [112.5, 2.5]
+Maldives:
+  cont: AS
+  lonlat: [73.0, 3.2]
+Mali:
+  cont: AF
+  lonlat: [-2.0, 18.0]
+Malta:
+  cont: EU
+  lonlat: [14.43333, 35.91667]
+Marshall Islands:
+  cont: OC
+  lonlat: [171.236, 7.113]
+Martinique:
+  cont: NA
+  lonlat: [-61.0, 14.66667]
+Mauritius:
+  cont: AF
+  lonlat: [57.58333, -20.3]
+Mexico:
+  cont: NA
+  lonlat: [-102.0, 23.0]
+Moldova:
+  cont: EU
+  lonlat: [28.58333, 47.25]
+Monaco:
+  cont: EU
+  lonlat: [7.41903, 43.73141]
+Mongolia:
+  cont: AS
+  lonlat: [105.0, 46.0]
+Montenegro:
+  cont: EU
+  lonlat: [19.25, 42.75]
+Morocco:
+  cont: AF
+  lonlat: [-6.0, 32.0]
+Mozambique:
+  cont: AF
+  lonlat: [35.0, -18.25]
+Myanmar:
+  cont: AS
+  lonlat: [96.0, 21.0]
+Namibia:
+  cont: AF
+  lonlat: [17.0, -22.0]
+Nepal:
+  cont: AS
+  lonlat: [84.0, 28.0]
+Netherlands:
+  cont: EU
+  lonlat: [5.75, 52.25]
+New Caledonia:
+  cont: OC
+  lonlat: [165.5, -21.5]
+New Zealand:
+  cont: OC
+  lonlat: [174.0, -42.0]
+Nicaragua:
+  cont: NA
+  lonlat: [-85.0, 13.0]
+Niger:
+  cont: AF
+  lonlat: [9.0, 18.0]
+Nigeria:
+  cont: AF
+  lonlat: [8.0, 10.0]
+Niue:
+  cont: OC
+  lonlat: [-169.86667, -19.03333]
+Norway:
+  cont: EU
+  lonlat: [10.0, 62.0]
+Oman:
+  cont: AS
+  lonlat: [57.0, 21.0]
+Pakistan:
+  cont: AS
+  lonlat: [70.0, 30.0]
+Palau Island:
+  cont: OC
+  lonlat: [134.56939, 7.56242]
+Palestine:
+  cont: AS
+  lonlat: [35.20329, 31.92157]
+Palestinian Territory:
+  cont: AS
+  lonlat: [35.20329, 31.92157]
+Panama:
+  cont: NA
+  lonlat: [-80.0, 9.0]
+Papua New Guinea:
+  cont: OC
+  lonlat: [147.0, -6.0]
+Paraguay:
+  cont: SA
+  lonlat: [-58.0, -23.33333]
+Peru:
+  cont: SA
+  lonlat: [-75.25, -10.0]
+Philippines:
+  cont: AS
+  lonlat: [122.0, 13.0]
+Poland:
+  cont: EU
+  lonlat: [20.0, 52.0]
+Portugal:
+  cont: EU
+  lonlat: [-8.13057, 39.6945]
+Puerto Rico:
+  cont: NA
+  lonlat: [-66.49989, 18.24829]
+Qatar:
+  cont: AS
+  lonlat: [51.25, 25.5]
+Romania:
+  cont: EU
+  lonlat: [25.0, 46.0]
+Russia:
+  cont: EU
+  lonlat: [100.0, 60.0]
+Rwanda:
+  cont: AF
+  lonlat: [30.0, -2.0]
+Saipan:
+  cont: OC
+  lonlat: [145.7545, 15.21233]
+Samoa:
+  cont: OC
+  lonlat: [-172.13333, -13.8]
+Sao Tome & Principe:
+  cont: UN
+  lonlat: [0, 0]
+Saudi Arabia:
+  cont: AS
+  lonlat: [45.0, 25.0]
+Senegal:
+  cont: AF
+  lonlat: [-14.25, 14.5]
+Serbia:
+  cont: EU
+  lonlat: [20.45998, 44.81892]
+Seychelles:
+  cont: AF
+  lonlat: [55.66667, -4.58333]
+Singapore:
+  cont: AS
+  lonlat: [103.85007, 1.28967]
+Slovakia:
+  cont: EU
+  lonlat: [19.5, 48.66667]
+Slovenia:
+  cont: EU
+  lonlat: [15.0, 46.08333]
+Solomon Islands:
+  cont: OC
+  lonlat: [159.0, -8.0]
+Somalia:
+  cont: AF
+  lonlat: [48.0, 6.0]
+South Africa:
+  cont: AF
+  lonlat: [24.0, -29.0]
+Spain:
+  cont: EU
+  lonlat: [-4.0, 40.0]
+Sri Lanka:
+  cont: AS
+  lonlat: [80.75, 7.75]
+St Lucia:
+  cont: NA
+  lonlat: [-60.96667, 13.88333]
+St Vincent & Grenadines:
+  cont: UN
+  lonlat: [0, 0]
+Sudan:
+  cont: AF
+  lonlat: [30.0, 16.0]
+Sweden:
+  cont: EU
+  lonlat: [15.0, 62.0]
+Switzerland:
+  cont: EU
+  lonlat: [8.01427, 47.00016]
+Syria:
+  cont: AS
+  lonlat: [38.0, 35.0]
+Taiwan:
+  cont: AS
+  lonlat: [121.0, 24.0]
+Tajikistan:
+  cont: AS
+  lonlat: [71.0, 39.0]
+Tanzania:
+  cont: AF
+  lonlat: [35.0, -6.0]
+Thailand:
+  cont: AS
+  lonlat: [101.0, 15.5]
+Togo:
+  cont: AF
+  lonlat: [1.08333, 8.66667]
+Tonga:
+  cont: OC
+  lonlat: [-175.0, -20.0]
+Trinidad & Tobago:
+  cont: UN
+  lonlat: [0, 0]
+Tunisia:
+  cont: AF
+  lonlat: [10.16579, 36.81897]
+Turkey:
+  cont: AS
+  lonlat: [35.0, 39.0]
+Turkmenistan:
+  cont: AS
+  lonlat: [59.66667, 39.75]
+Turks & Caicos Is:
+  cont: UN
+  lonlat: [0, 0]
+Uganda:
+  cont: AF
+  lonlat: [32.5, 1.25]
+Ukraine:
+  cont: EU
+  lonlat: [32.0, 49.0]
+United Arab Emirates:
+  cont: AS
+  lonlat: [54.5, 23.75]
+United Kingdom:
+  cont: EU
+  lonlat: [-2.69531, 54.75844]
+United States of America:
+  cont: NA
+  lonlat: [-98.5, 39.76]
+Uruguay:
+  cont: SA
+  lonlat: [-56.0, -33.0]
+Uzbekistan:
+  cont: AS
+  lonlat: [63.83333, 41.66667]
+Vanuatu:
+  cont: OC
+  lonlat: [167.0, -16.0]
+Vatican City State:
+  cont: EU
+  lonlat: [12.4533, 41.90225]
+Venezuela:
+  cont: SA
+  lonlat: [-66.0, 8.0]
+Vietnam:
+  cont: AS
+  lonlat: [107.83333, 16.16667]
+Virgin Islands (Brit):
+  cont: UN
+  lonlat: [0, 0]
+Virgin Islands (Usa):
+  cont: NA
+  lonlat: [-64.74698, 17.72751]
+Yemen:
+  cont: AS
+  lonlat: [47.5, 15.5]
+Zambia:
+  cont: AF
+  lonlat: [28.5, -14.33333]
+Zimbabwe:
+  cont: AF
+  lonlat: [29.75, -19.0]
+aliases: {Bosnia & Herzegovina: Bosnia, Congo Democratic Rep: Congo Democratic Republic,
+  Palestine: Palestinian Territory, Usa: United States of America}
