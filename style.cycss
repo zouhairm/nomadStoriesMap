@@ -1,96 +1,128 @@
 core {
-	active-bg-color: #fff;
+	active-bg-color: #ffe;
 	active-bg-opacity: 0.333;
+	active-bg-size: 10;
 }
 
 edge {
-	curve-style: haystack;
-	haystack-radius: 0;
-	opacity: 0.333;
+	/*curve-style: haystack;
+	haystack-radius: 0;*/
+	opacity: 0.02;
 	width: 2;
 	z-index: 0;
 	overlay-opacity: 0;
-  events: no;
+	visibility: hidden;
+  	events: no;
+}
+
+edge[leastSimilar = "1"] {
+	line-style: dashed;
+	line-dash-pattern: 20, 20;
+	line-color: purple;
+}
+
+edge[mostSimilar = "1"] {
+	line-color: white;
+	width: 8;
+}
+
+
+node:parent {
+	background-opacity: 0;
+	border-width: 0;
+	events: no;
 }
 
 node {
-	width: 40;
-	height: 40;
-	font-size: 10;
+	width: 8;
+	height: 8;
+	opacity: .8;
+	font-size: 32;
 	font-weight: bold;
 	min-zoomed-font-size: 4;
-	content: data(name);
+	/*content: data(label);*/
 	text-valign: center;
 	text-halign: center;
-	color: #000;
-	text-outline-width: 2;
-	text-outline-color: #fff;
-	text-outline-opacity: 1;
-	overlay-color: #fff;
+	color: #fff;
+	text-outline-width: 1;
+	text-outline-color: #000;
+	text-outline-opacity: .7;
+	/*overlay-color: #fff;*/
+	visibility: visible;
 }
 
-edge[interaction = "cc"] {
-	line-color: #FACD37;
-	opacity: 0.666;
-	z-index: 9;
-	width: 4;
+
+
+node[AuthorCont = "AF"] {
+	background-color: orange;
+	color: orange;
+}
+node[AuthorCont = "EU"] {
+	background-color: blue;
+	color: blue;
+}
+node[AuthorCont = "NA"] {
+	background-color: green;
+	color: green;
+}
+node[AuthorCont = "SA"] {
+	background-color: purple;
+	color: purple;
+}
+node[AuthorCont = "AS"] {
+	background-color: yellow;
+	color: yellow;
+}
+node[AuthorCont = "OC"] {
+	background-color: red;
+	color: red;
 }
 
-node[NodeType = "Cheese"],
-node[NodeType = "CheeseType"] {
-	background-color: #FACD37;
-	text-outline-color: #FACD37;
-	width: mapData(Quality, 70, 100, 20, 50);
-	height: mapData(Quality, 70, 100, 20, 50);
-}
-
-node[NodeType = "WhiteWine"] {
-	background-color: white;
-	text-outline-color: white;
-}
-
-edge[interaction = "cw"] {
-	line-color: white;
-}
-
-node[NodeType = "RedWine"] {
-	background-color: #DE3128;
-	text-outline-color: #DE3128;
-}
-
-edge[interaction = "cr"] {
-	line-color: #DE3128;
-}
-
-node[NodeType = "Cider"] {
-	background-color: #A4EB34;
-	text-outline-color: #A4EB34;
-}
 
 node.highlighted {
+	width: 15;
+	height: 15;
 	min-zoomed-font-size: 0;
-  z-index: 9999;
+	content: data(label);
+	z-index: 9999;
 }
 
 edge.highlighted {
-	opacity: 0.8;
-	width: 4;
+	opacity: 0.5;
+	width: 6;
 	z-index: 9999;
+	visibility: visible;
 }
+
+
+node:selected {
+	width: 15;
+	height: 15;
+	/*border-color: rgb(187, 219, 247);*/
+	/*border-opacity: 0.5;*/
+	border-width: 2;
+}
+
+/* Faded Logic */
 
 .faded {
   events: no;
 }
 
 node.faded {
-  opacity: 0.08;
+  opacity: 0.2;
+  events: no;
 }
 
 edge.faded {
-  opacity: 0.06;
+  opacity: 0.01;
 }
 
 .hidden {
+	display: none;
+}
+
+.filtered {
 	display: none;
 }
 
@@ -98,14 +130,5 @@ edge.faded {
 
 }
 
-node:selected {
-	width: 40;
-	height: 40;
-	border-color: rgb(187, 219, 247);
-	border-opacity: 0.5;
-	border-width: 10;
-}
 
-.filtered {
-	display: none;
-}
+
