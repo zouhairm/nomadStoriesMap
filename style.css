@@ -16,7 +16,7 @@ html, body {
 
   background: #000000d9 url('./world-map-blank.png') no-repeat;
   background-attachment: fixed;
-  background-position: 30px 60px;
+  background-position: 32px 0px;
   background-size: 1460px 912px;
 
   /*opacity: 0.8;*/
