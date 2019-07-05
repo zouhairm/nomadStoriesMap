@@ -208,7 +208,7 @@ $(function(){
       return;
     }
     var req = $.ajax({
-      url: '../dataFolder/2018/'+ encodeURIComponent(node.data('id')),
+      url: './dataFolder/2018/'+ encodeURIComponent(node.data('id')),
       type: 'GET',
       contentType: 'application/text;charset=utf-8',
       dataType: 'text'
