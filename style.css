@@ -14,10 +14,10 @@ html, body {
   left: 0;
   top: 0;
 
-  background: #000 url('./world-map-blank.png') no-repeat;
+  background: #000000d9 url('./world-map-blank.png') no-repeat;
   background-attachment: fixed;
-  background-position: 72px 72px;
-  background-size: 94%;
+  background-position: 30px 60px;
+  background-size: 1460px 912px;
 
   /*opacity: 0.8;*/
 }

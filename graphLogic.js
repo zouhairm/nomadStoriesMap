@@ -263,25 +263,6 @@ $(function(){
     allChildren = allNodes.nonorphans();
     allEles = cy.elements();
 
-
-
-    //Zoom Logic to keep background lined up
-    cy.on('pan', function(evt){
-      cyDiv = document.getElementById('cy') 
-      var pan  = cy.pan();
-      var zoom = cy.zoom() * 100 * 5;
-      
-      var ax = - 6.7 * zoom;
-      var ay = - 3.7 * zoom;
-
-      var x = pan.x + ax;
-      var y = pan.y + ay;
-
-      cyDiv.style.backgroundPosition = x +'px ' + y + 'px ';
-      cyDiv.style.backgroundSize = zoom + '%'; 
-    });
-
-
     //For each country, the locations are going to be on top of each
     //other, so we relayout using a concentric circle and use a bounding
     //box that is "reasonable"
@@ -295,7 +276,7 @@ $(function(){
       var dTheta_at_R1 = 2 * Math.PI / 5 ;
       stories.forEach(function(s)
       {
-        s.position({x: p.x + R*Math.cos(theta), y: p.y + R*Math.sin(theta) });
+        s.position({x: p.x + R*Math.cos(theta), y: p.y*1.2 + R*Math.sin(theta) });
         R += (dR);
         theta += dTheta_at_R1 / Math.sqrt(R);
       });
@@ -315,11 +296,24 @@ $(function(){
       countryLayout.run();
     });
 
-    // var newLayout = allEles.makeLayout({
-    //   name: 'preset',
-    //   padding: layoutPadding,
-    // })
-    // newLayout.run();
+
+
+    //Zoom Logic to keep background lined up
+    cy.on('pan', function(evt){
+      cyDiv = document.getElementById('cy') 
+      var pan  = cy.pan();
+      var zoom = cy.zoom() * 5;
+      
+      var ax = - 670 * zoom;
+      var ay = - 450 * zoom;
+
+      var x = pan.x + ax;
+      var y = pan.y + ay;
+
+      cyDiv.style.backgroundPosition = x +'px ' + y + 'px ';
+      cyDiv.style.backgroundSize = (window.screen.width * zoom)+'px '+(window.screen.height * zoom)+'px'; 
+    });
+
     cy.fit();
 
     cy.on('tap', function(){
