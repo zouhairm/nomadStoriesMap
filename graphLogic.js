@@ -14,7 +14,8 @@ $(function(){
   var graphP = $.ajax({
     url: './2018Stories_cyto.json',
     type: 'GET',
-    contentType: 'application/json; charset=utf-8',
+    contentType: 'application/json;charset=windows-1252',
+    dataType: 'json'
   });
 
   // also get style via ajax
@@ -262,6 +263,24 @@ $(function(){
     allEles = cy.elements();
 
 
+
+    //Zoom Logic to keep background lined up
+    cy.on('pan', function(evt){
+      cyDiv = document.getElementById('cy') 
+      var pan  = cy.pan();
+      var zoom = cy.zoom() * 100 * 5;
+      
+      var ax = - 6.7 * zoom;
+      var ay = - 3.7 * zoom;
+
+      var x = pan.x + ax;
+      var y = pan.y + ay;
+
+      cyDiv.style.backgroundPosition = x +'px ' + y + 'px ';
+      cyDiv.style.backgroundSize = zoom + '%'; 
+    });
+
+
     //For each country, the locations are going to be on top of each
     //other, so we relayout using a concentric circle and use a bounding
     //box that is "reasonable"
@@ -367,22 +386,6 @@ $(function(){
 
     }, 100 ) );
 
-
-    //Zoom Logic to keep background lined up
-    cy.on('pan', function(evt){
-      cyDiv = document.getElementById('cy') 
-      var pan  = cy.pan();
-      var zoom = cy.zoom() * 100 * 5;
-      
-      var ax = - 6.7 * zoom;
-      var ay = - 3.7 * zoom;
-
-      var x = pan.x + ax;
-      var y = pan.y + ay;
-
-      cyDiv.style.backgroundPosition = x +'px ' + y + 'px ';
-      cyDiv.style.backgroundSize = zoom + '%'; 
-    });
 
 
 

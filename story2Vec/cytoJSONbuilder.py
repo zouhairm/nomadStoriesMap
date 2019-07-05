@@ -2,7 +2,7 @@
 
 ## This script builds up the necessary cytoscape json file
 
-debug = True
+debug = False
 ndebug = 500
 
 withEdges = True
@@ -11,6 +11,7 @@ import yaml
 import json
 
 import string
+import html
 import os
 from tqdm import tqdm
 import numpy as np
@@ -24,7 +25,11 @@ geoNamesKey = '' #Needs to be given
 global countryLocCache
 countryLocCache = {}
 
-NominatimCacheFile = './NominatimCache.yaml'
+fileDIR    = os.path.join(os.path.dirname(__file__))
+
+
+NominatimCacheFile = os.path.join(fileDIR, 'NominatimCache.yaml')
+
 if os.path.isfile(NominatimCacheFile):
     with open(NominatimCacheFile) as f:
         countryLocCache = yaml.load(f)
@@ -73,7 +78,7 @@ def storyToElement(fileid, filepath):
 
     element['data'] = {
         'id': fileid,
-        'label': s['Title'].title(),
+        'label': html.unescape(s['Title']),
         'parent': s['SetInCountry'],
         'AuthorName': s['AuthorName'],
         'AuthorCountry': s['AuthorCountry'],
@@ -157,7 +162,7 @@ def extractEdges(doc2VecModel, nodes, topn = 5):
                 mDist = edge['data']['d']
                 
 
-        if len(newEdges) == (topNIdx+1) > 0:
+        if len(newEdges) > 0:
             newEdges[-1]['data']['leastSimilar'] = "1"
 
         if mIdx > -1:
@@ -211,7 +216,7 @@ def buildCytoJSON(dataFolder, doc2VecModel, outFile = None):
     if outFile:
         try:
             with open(outFile, 'wt+') as f:
-                json.dump(cytoDict, f, indent=2)
+                json.dump(cytoDict, f, indent=2, ensure_ascii=False)
         except Exception as E:
             print('Failed to dump json file Error %s'%(str(E)))
 
@@ -220,7 +225,8 @@ def buildCytoJSON(dataFolder, doc2VecModel, outFile = None):
 
 if __name__ == '__main__':
     print('Running ... ')
-    buildCytoJSON('dataFolder/2018', './gensimModel.m', 'cytoViz/2018Stories_cyto%s.json'%('_debug' if debug else ''))
+
+    buildCytoJSON('./dataFolder/2018', './story2Vec/gensimModel.m', './2018Stories_cyto%s.json'%('_debug' if debug else ''))
 
     with open(NominatimCacheFile,'w+') as f:
         yaml.dump(countryLocCache, f)
