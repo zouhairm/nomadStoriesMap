@@ -14,7 +14,7 @@ $(function(){
   var graphP = $.ajax({
     url: './2018Stories_cyto.json',
     type: 'GET',
-    contentType: 'application/json;charset=windows-1252',
+    contentType: 'application/json;charset=utf-8',
     dataType: 'json'
   });
 
@@ -208,8 +208,9 @@ $(function(){
       return;
     }
     var req = $.ajax({
-      url: '../dataFolder/2018/'+node.data('id'),
+      url: '../dataFolder/2018/'+ encodeURIComponent(node.data('id')),
       type: 'GET',
+      contentType: 'application/text;charset=utf-8',
       dataType: 'text'
     });
 
