@@ -8,13 +8,13 @@ $(function(){
   var aniDur = 500;
   var easing = 'linear';
 
-  var cy;
+  var cy; 
 
   // get exported json from cytoscape desktop via ajax
   var graphP = $.ajax({
     url: './2018Stories_cyto.json',
     type: 'GET',
-    dataType: 'json'
+    contentType: 'application/json; charset=utf-8',
   });
 
   // also get style via ajax
@@ -367,6 +367,27 @@ $(function(){
 
     }, 100 ) );
 
+
+    //Zoom Logic to keep background lined up
+    cy.on('pan', function(evt){
+      cyDiv = document.getElementById('cy') 
+      var pan  = cy.pan();
+      var zoom = cy.zoom() * 100 * 5;
+      
+      var ax = - 6.7 * zoom;
+      var ay = - 3.7 * zoom;
+
+      var x = pan.x + ax;
+      var y = pan.y + ay;
+
+      cyDiv.style.backgroundPosition = x +'px ' + y + 'px ';
+      cyDiv.style.backgroundSize = zoom + '%'; 
+    });
+
+
+
+
+
   }
 // **************************************************
 // **************************************************
@@ -472,7 +493,6 @@ $(function(){
       }).play();
     }
   });
-
 
 // **************************************************
 // **************************************************
