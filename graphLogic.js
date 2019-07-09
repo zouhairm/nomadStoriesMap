@@ -12,7 +12,7 @@ $(function(){
 
   // get exported json from cytoscape desktop via ajax
   var graphP = $.ajax({
-    url: './2018Stories_cyto.json',
+    url: './2018Stories_cyto_debug.json',
     type: 'GET',
     contentType: 'application/json;charset=utf-8',
     dataType: 'json'
@@ -266,35 +266,35 @@ $(function(){
     //For each country, the locations are going to be on top of each
     //other, so we relayout using a concentric circle and use a bounding
     //box that is "reasonable"
-    allParents.forEach(function(country)
-    { 
-      // country = allParents[0];
-      var stories = country.descendants();
-      var p = stories[0].position();
-      var R = 5; var dR = .5;
-      var theta = 0; 
-      var dTheta_at_R1 = 2 * Math.PI / 5 ;
-      stories.forEach(function(s)
-      {
-        s.position({x: p.x + R*Math.cos(theta), y: p.y*1.2 + R*Math.sin(theta) });
-        R += (dR);
-        theta += dTheta_at_R1 / Math.sqrt(R);
-      });
+    // allParents.forEach(function(country)
+    // { 
+    //   // country = allParents[0];
+    //   var stories = country.descendants();
+    //   var p = stories[0].position();
+    //   var R = 5; var dR = .5;
+    //   var theta = 0; 
+    //   var dTheta_at_R1 = 2 * Math.PI / 5 ;
+    //   stories.forEach(function(s)
+    //   {
+    //     s.position({x: p.x + R*Math.cos(theta), y: p.y*1.2 + R*Math.sin(theta) });
+    //     R += (dR);
+    //     theta += dTheta_at_R1 / Math.sqrt(R);
+    //   });
 
-      var countryLayout = stories.makeLayout({
-        name: 'preset',
-        padding: 1,
-        equidistant: true,
-        minNodeSpacing: 5,
-        avoidOverlap: true,
-        boundingBox: { x1: p.x, y1: p.y, w: 100, h: 100},
-        // returns numeric value for each node, placing higher nodes in levels towards the centre
-        // we use outdegree so that those nodes more connected are on the outside!
-        concentric: function( n ){ return -n.outdegree(); }
-      });
+    //   var countryLayout = stories.makeLayout({
+    //     name: 'preset',
+    //     padding: 1,
+    //     equidistant: true,
+    //     minNodeSpacing: 5,
+    //     avoidOverlap: true,
+    //     boundingBox: { x1: p.x, y1: p.y, w: 100, h: 100},
+    //     // returns numeric value for each node, placing higher nodes in levels towards the centre
+    //     // we use outdegree so that those nodes more connected are on the outside!
+    //     concentric: function( n ){ return -n.outdegree(); }
+    //   });
 
-      countryLayout.run();
-    });
+    //   countryLayout.run();
+    // });
 
 
 

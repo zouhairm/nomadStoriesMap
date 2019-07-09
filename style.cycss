@@ -28,11 +28,6 @@ edge[mostSimilar = "1"] {
 }
 
 
-node:parent {
-	background-opacity: 0;
-	border-width: 0;
-	events: no;
-}
 
 node {
 	width: 6;
@@ -49,10 +44,15 @@ node {
 	text-outline-color: #000;
 	text-outline-opacity: .7;
 	/*overlay-color: #fff;*/
-	visibility: visible;
+	visibility: hidden;
 }
 
-
+node:parent {
+	background-opacity: .8;
+	border-width: 4;
+	/*events: no;*/
+	visibility: visible;
+}
 
 node[AuthorCont = "AF"] {
 	background-color: orange;
@@ -66,6 +66,7 @@ node[AuthorCont = "NA"] {
 	background-color: green;
 	color: green;
 }
+
 node[AuthorCont = "SA"] {
 	background-color: purple;
 	color: purple;
@@ -120,11 +121,11 @@ edge.faded {
 }
 
 .hidden {
-	display: none;
+	visibility: hidden;
 }
 
 .filtered {
-	display: none;
+	visibility: hidden;
 }
 
 .highlighted {
