@@ -2,6 +2,7 @@
 
 ## This script builds up the necessary cytoscape json file
 
+useVivaJson = True
 debug = False
 ndebug = 500
 
@@ -195,7 +196,7 @@ def buildCytoJSON(dataFolder, doc2VecModel, outFile = None):
           'style': {'label': 'data(id)'}
         }
       ]
-    cytoDict = {
+    graphDict = {
         # "format_version" : "1.0",
         # "generated_by" : "cytoscape-3.2.0",
         # "target_cytoscapejs_version" : "~2.1",
@@ -213,14 +214,43 @@ def buildCytoJSON(dataFolder, doc2VecModel, outFile = None):
         "style": style,
     }
 
+    if useVivaJson:
+        graphDict = vivafy(graphDict)
+        outFile += 'viva.json'
+
     if outFile:
         try:
             with open(outFile, 'wt+') as f:
-                json.dump(cytoDict, f, indent=2, ensure_ascii=False)
+                json.dump(graphDict, f, indent=2, ensure_ascii=False)
         except Exception as E:
             print('Failed to dump json file Error %s'%(str(E)))
 
-    return cytoDict
+    return graphDict
+
+
+
+def vivafy(cytoDict):
+    vivaDict = {'nodes': [], 'links': []}
+
+    for e in cytoDict['elements']:
+        if 'source' in e['data']:    
+            l = {
+                'fromId': e['data']['source'],
+                'toId'  : e['data']['target']
+                }
+
+            vivaDict['links'] += [l]
+
+        else:
+            if not 'position' in e: continue
+            n = {'id': e['data'].pop('id')}
+            n['data'] = e['data']
+            n['data']['position'] = e['position']
+        
+            vivaDict['nodes'] += [n]
+
+    return vivaDict
+
 
 
 if __name__ == '__main__':
