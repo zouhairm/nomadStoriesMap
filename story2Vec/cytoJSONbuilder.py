@@ -4,7 +4,7 @@
 
 useVivaJson = True
 debug = False
-ndebug = 500
+ndebug = 100
 
 withEdges = True
 
@@ -68,25 +68,17 @@ def storyToElement(fileid, filepath):
         s = yaml.load(f)
 
 
-    element = {}
-
-    setInCountryProps  = geoLocate(s['SetInCountry'])
     authorCountryProps = geoLocate(s['AuthorCountry'])
-    element['position'] =  {
-        'x':  setInCountryProps['lonlat'][0]*20, 
-        'y': -setInCountryProps['lonlat'][1]*20
-    }
-
-    element['data'] = {
-        'id': fileid,
-        'label': html.unescape(s['Title']),
-        'parent': s['SetInCountry'],
-        'AuthorName': s['AuthorName'],
-        'AuthorCountry': s['AuthorCountry'],
-        'AuthorCont': authorCountryProps['cont'],
-        'SetInCountry': s['SetInCountry'],
-        'Excerpt': ' '.join(s['Text'].split()[0:20]) + ' ...',
-        'orgPos': element['position'],
+    element = {
+    'data': {
+                'id': fileid,
+                'label': html.unescape(s['Title']),
+                'AuthorName': s['AuthorName'],
+                'AuthorCountry': s['AuthorCountry'],
+                'AuthorCont': authorCountryProps['cont'],
+                'SetInCountry': s['SetInCountry'],
+                'Excerpt': ' '.join(s['Text'].split()[0:30]) + ' ...',
+            }
     }
 
     # // NB the group field can be automatically inferred for you but specifying it
@@ -172,7 +164,7 @@ def extractEdges(doc2VecModel, nodes, topn = 5):
 
         edges += newEdges
 
-        if debug and len(edges) > 1000:
+        if debug and len(edges) > 100:
             break
 
     return edges
@@ -207,21 +199,32 @@ def buildCytoJSON(dataFolder, doc2VecModel, outFile = None):
             "__Annotations" : [ ],
             "shared_name" : "TravelStories",
             # "SUID" : 52,
-            "name" : "TravelStories"
+            "name" : "TravelStories",
+            "countryPositions": {}
         },
         "elements": nodes + edges,
         "layout": layout,
         "style": style,
     }
 
+
+    for n in nodes:
+        setin = n['data']['SetInCountry']
+        if not setin in graphDict['data']['countryPositions']:
+            setInCountryProps  = geoLocate(setin)
+            graphDict['data']['countryPositions'][setin] = {
+                'lon': setInCountryProps['lonlat'][0], 
+                'lat': setInCountryProps['lonlat'][1]
+            }
+
     if useVivaJson:
         graphDict = vivafy(graphDict)
-        outFile += 'viva.json'
+        outFile = outFile.replace('cyto', 'viva')
 
     if outFile:
         try:
             with open(outFile, 'wt+') as f:
-                json.dump(graphDict, f, indent=2, ensure_ascii=False)
+                json.dump(graphDict, f, indent= 2 if debug else 0, ensure_ascii=False)
         except Exception as E:
             print('Failed to dump json file Error %s'%(str(E)))
 
@@ -230,24 +233,25 @@ def buildCytoJSON(dataFolder, doc2VecModel, outFile = None):
 
 
 def vivafy(cytoDict):
-    vivaDict = {'nodes': [], 'links': []}
+    vivaDict = {'nodes': [], 'links': [], 'metadata': {}}
 
     for e in cytoDict['elements']:
         if 'source' in e['data']:    
             l = {
-                'fromId': e['data']['source'],
-                'toId'  : e['data']['target']
+                'fromId': e['data'].pop('source'),
+                'toId'  : e['data'].pop('target'),
+                'data'  : e['data']
                 }
 
             vivaDict['links'] += [l]
 
         else:
-            if not 'position' in e: continue
             n = {'id': e['data'].pop('id')}
             n['data'] = e['data']
-            n['data']['position'] = e['position']
-        
+
             vivaDict['nodes'] += [n]
+
+    vivaDict['metadata'] = cytoDict['data']
 
     return vivaDict
 
